@@ -16,4 +16,14 @@ defmodule ProgramminElixirExercises do
       [[a]] = [[1, 2, 3]]
     end
   end
+
+  test "pattern_matching-2" do
+    assert_raise MatchError, fn ->
+      [a, b, a] = [1, 2, 3]
+    end
+    assert_raise MatchError, fn ->
+      [a, b, a] = [1, 1, 2]
+    end
+    assert [a, b, a] = [1, 2, 1]
+  end
 end
