@@ -51,4 +51,9 @@ defmodule Functions do
     assert mrs.("Smith") === "Mrs Smith"
     assert prefix.("Elixir").("Rocks") === "Elixir Rocks"
   end
+
+  test "functions-5" do
+    assert Enum.map [1, 2, 3, 4], &(&1 + 2) === [3, 4, 5, 6]
+    assert Enum.map [1, 2, 3, 4], &(IO.inspect &1) === [1, 2, 3, 4]
+  end
 end
