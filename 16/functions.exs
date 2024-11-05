@@ -27,4 +27,21 @@ defmodule Functions do
     assert f.(1, 0, 3) == "Buzz"
     assert f.(1, 2, 3) == 3
   end
+
+  test "functions-3" do
+    f = fn
+      0, 0, _ -> "FizzBuzz"
+      0, _, _ -> "Fizz"
+      _, 0, _ -> "Buzz"
+      _, _, c -> c 
+    end
+    ff = &(f.(rem(&1, 3), rem(&1, 5), &1))
+    assert ff.(10) === "Buzz"
+    assert ff.(11) === 11
+    assert ff.(12) === "Fizz"
+    assert ff.(13) === 13
+    assert ff.(14) === 14
+    assert ff.(15) === "FizzBuzz"
+    assert ff.(16) === 16
+  end
 end
