@@ -6,6 +6,11 @@ defmodule Times do
   def quadruple(n), do: n |> double |> double
 end
 
+defmodule Gcd do
+  def gcd(x, 0), do: x
+  def gcd(x, y), do: gcd(y, rem(x, y))
+end
+
 defmodule ModulesAndFunctions do
   use ExUnit.Case, async: true
 
@@ -23,4 +28,10 @@ defmodule ModulesAndFunctions do
     assert Times.quadruple(4) === 16 
   end
 
+  test "modules and functions-5" do
+    assert Gcd.gcd(18, 3) === 3
+    assert Gcd.gcd(3, 18) === 3
+    assert Gcd.gcd(3, 29) === 1
+    assert Gcd.gcd(18, 27) === 9
+  end
 end
