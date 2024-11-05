@@ -44,4 +44,11 @@ defmodule Functions do
     assert ff.(15) === "FizzBuzz"
     assert ff.(16) === 16
   end
+
+  test "functions-4" do
+    prefix = fn a -> &("#{a} #{&1}") end
+    mrs = prefix.("Mrs")
+    assert mrs.("Smith") === "Mrs Smith"
+    assert prefix.("Elixir").("Rocks") === "Elixir Rocks"
+  end
 end
